@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c954097ca89fb6fe86b538fb0f87694",
+    "content-hash": "5c284223f3c47c2b756ca3c305a85239",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -92,32 +92,6 @@
             "time": "2026-09-17T18:30:31+00:00"
         },
         {
-            "name": "axolotl-pm/bedrock-data",
-            "version": "6.9.0+bedrock-1.26.50",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/axolotl-pm/BedrockData.git",
-                "reference": "488f81d2ab95841337fb9331efe9d6b74ceddb07"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockData/zipball/488f81d2ab95841337fb9331efe9d6b74ceddb07",
-                "reference": "488f81d2ab95841337fb9331efe9d6b74ceddb07",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "CC0-1.0"
-            ],
-            "description": "Blobs of data generated from Minecraft: Bedrock Edition, used by PocketMine-MP",
-            "support": {
-                "issues": "https://github.com/axolotl-pm/BedrockData/issues",
-                "source": "https://github.com/axolotl-pm/BedrockData/tree/6.9.0+bedrock-1.26.50"
-            },
-            "time": "2026-09-17T18:27:03+00:00"
-        },
-        {
             "name": "axolotl-pm/bedrock-item-upgrade-schema",
             "version": "1.19.0",
             "source": {
@@ -142,53 +116,6 @@
                 "source": "https://github.com/axolotl-pm/BedrockItemUpgradeSchema/tree/1.19.0"
             },
             "time": "2026-09-17T18:43:14+00:00"
-        },
-        {
-            "name": "axolotl-pm/bedrock-protocol",
-            "version": "62.0.0+bedrock-1.26.50",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/axolotl-pm/BedrockProtocol.git",
-                "reference": "0e13c077d1060ae9e293908eff81fbef600ead5c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockProtocol/zipball/0e13c077d1060ae9e293908eff81fbef600ead5c",
-                "reference": "0e13c077d1060ae9e293908eff81fbef600ead5c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-encoding": "~1.0.0",
-                "ext-json": "*",
-                "php": "^8.1",
-                "pocketmine/binaryutils": "^0.2.0",
-                "pocketmine/color": "^0.2.0 || ^0.3.0",
-                "pocketmine/math": "^0.3.0 || ^0.4.0 || ^1.0.0",
-                "pocketmine/nbt": "^1.0.0",
-                "ramsey/uuid": "^4.1"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "2.1.0",
-                "phpstan/phpstan-phpunit": "^2.0.0",
-                "phpstan/phpstan-strict-rules": "^2.0.0",
-                "phpunit/phpunit": "^9.5 || ^10.0 || ^11.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "pocketmine\\network\\mcpe\\protocol\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
-            "support": {
-                "issues": "https://github.com/axolotl-pm/BedrockProtocol/issues",
-                "source": "https://github.com/axolotl-pm/BedrockProtocol/tree/62.0.0+bedrock-1.26.50"
-            },
-            "time": "2026-09-17T18:23:29+00:00"
         },
         {
             "name": "axolotl-pm/xoroshiro128pp",
@@ -291,6 +218,87 @@
                 }
             ],
             "time": "2025-03-29T13:50:30+00:00"
+        },
+        {
+            "name": "nethergamesmc/bedrock-data",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kostamax27/BedrockData-NG.git",
+                "reference": "8061304f23c1cc32c07e6d1a61043f020437d401"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kostamax27/BedrockData-NG/zipball/8061304f23c1cc32c07e6d1a61043f020437d401",
+                "reference": "8061304f23c1cc32c07e6d1a61043f020437d401",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "CC0-1.0"
+            ],
+            "description": "Blobs of data generated from Minecraft: Bedrock Edition, used by PocketMine-MP",
+            "support": {
+                "source": "https://github.com/kostamax27/BedrockData-NG/tree/master"
+            },
+            "time": "2026-09-18T01:25:16+00:00"
+        },
+        {
+            "name": "nethergamesmc/bedrock-protocol",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kostamax27/BedrockProtocol-NG.git",
+                "reference": "a6287e271f96890cabff432643c00e4bc532097b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kostamax27/BedrockProtocol-NG/zipball/a6287e271f96890cabff432643c00e4bc532097b",
+                "reference": "a6287e271f96890cabff432643c00e4bc532097b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-encoding": "~1.0.0",
+                "ext-json": "*",
+                "php": "^8.1",
+                "pocketmine/binaryutils": "^0.2.0",
+                "pocketmine/color": "^0.2.0 || ^0.3.0",
+                "pocketmine/math": "^0.3.0 || ^0.4.0 || ^1.0.0",
+                "pocketmine/nbt": "^1.0.0",
+                "ramsey/uuid": "^4.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "2.1.0",
+                "phpstan/phpstan-phpunit": "^2.0.0",
+                "phpstan/phpstan-strict-rules": "^2.0.0",
+                "phpunit/phpunit": "^9.5 || ^10.0 || ^11.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "pocketmine\\network\\mcpe\\protocol\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "pocketmine\\network\\mcpe\\protocol\\": "tests/phpunit/"
+                }
+            },
+            "scripts": {
+                "update-create-methods": [
+                    "@php tools/generate-create-static-methods.php"
+                ]
+            },
+            "license": [
+                "LGPL-3.0"
+            ],
+            "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
+            "support": {
+                "source": "https://github.com/kostamax27/BedrockProtocol-NG/tree/master"
+            },
+            "time": "2026-09-18T00:52:17+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -2814,7 +2822,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "nethergamesmc/bedrock-data": 20,
+        "nethergamesmc/bedrock-protocol": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

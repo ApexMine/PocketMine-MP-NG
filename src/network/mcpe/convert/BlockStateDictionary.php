@@ -26,6 +26,7 @@ namespace pocketmine\network\mcpe\convert;
 use pocketmine\data\bedrock\block\BlockStateData;
 use pocketmine\data\bedrock\block\BlockTypeNames;
 use pocketmine\nbt\NbtDataException;
+use pocketmine\nbt\tag\Tag;
 use pocketmine\nbt\TreeRoot;
 use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
 use pocketmine\utils\Utils;
@@ -55,6 +56,12 @@ final class BlockStateDictionary{
 	 * @phpstan-var array<string, array<int, int>|int>|null
 	 */
 	private ?array $idMetaToStateIdLookupCache = null;
+
+	/**
+	 * @var Tag[][]
+	 * @phpstan-var array<string, array<string, Tag>>
+	 */
+	private array $fixedPropertiesCache = [];
 
 	/**
 	 * @param BlockStateDictionaryEntry[] $states
@@ -139,8 +146,50 @@ final class BlockStateDictionary{
 		return match(true){
 			$lookup === null => null,
 			is_int($lookup) => $lookup,
-			is_array($lookup) => $lookup[BlockStateDictionaryEntry::encodeStateProperties($data->getStates())] ?? null
+			is_array($lookup) => $lookup[BlockStateDictionaryEntry::encodeStateProperties($data->getStates())] ?? $this->lookupStateIdWithFixedProperties($name, $data->getStates(), $lookup)
 		};
+	}
+
+	/**
+	 * @param Tag[] $states
+	 * @param int[] $lookup
+	 * @phpstan-param array<string, Tag> $states
+	 * @phpstan-param array<string, int> $lookup
+	 */
+	private function lookupStateIdWithFixedProperties(string $name, array $states, array $lookup) : ?int{
+		$fixedProperties = $this->fixedPropertiesCache[$name] ??= $this->findFixedProperties($lookup);
+		$changed = false;
+		foreach(Utils::stringifyKeys($fixedProperties) as $propertyName => $value){
+			if(isset($states[$propertyName]) && !$states[$propertyName]->equals($value)){
+				$states[$propertyName] = $value;
+				$changed = true;
+			}
+		}
+		return $changed ? $lookup[BlockStateDictionaryEntry::encodeStateProperties($states)] ?? null : null;
+	}
+
+	/**
+	 * @param int[] $lookup
+	 * @phpstan-param array<string, int> $lookup
+	 *
+	 * @return Tag[]
+	 * @phpstan-return array<string, Tag>
+	 */
+	private function findFixedProperties(array $lookup) : array{
+		$fixedProperties = null;
+		foreach(Utils::stringifyKeys($lookup) as $rawStateProperties => $_){
+			$properties = BlockStateDictionaryEntry::decodeStateProperties($rawStateProperties);
+			if($fixedProperties === null){
+				$fixedProperties = $properties;
+				continue;
+			}
+			foreach(Utils::stringifyKeys($fixedProperties) as $propertyName => $value){
+				if(!isset($properties[$propertyName]) || !$properties[$propertyName]->equals($value)){
+					unset($fixedProperties[$propertyName]);
+				}
+			}
+		}
+		return $fixedProperties ?? [];
 	}
 
 	/**
