@@ -32,6 +32,7 @@ use pocketmine\block\tile\Banner as TileBanner;
 use pocketmine\block\tile\Barrel as TileBarrel;
 use pocketmine\block\tile\Beacon as TileBeacon;
 use pocketmine\block\tile\Bed as TileBed;
+use pocketmine\block\tile\Beehive as TileBeehive;
 use pocketmine\block\tile\Bell as TileBell;
 use pocketmine\block\tile\BlastFurnace as TileBlastFurnace;
 use pocketmine\block\tile\BrewingStand as TileBrewingStand;
@@ -41,6 +42,7 @@ use pocketmine\block\tile\Chest as TileChest;
 use pocketmine\block\tile\ChiseledBookshelf as TileChiseledBookshelf;
 use pocketmine\block\tile\Comparator as TileComparator;
 use pocketmine\block\tile\DaylightSensor as TileDaylightSensor;
+use pocketmine\block\tile\DecoratedPot as TileDecoratedPot;
 use pocketmine\block\tile\EnchantTable as TileEnchantingTable;
 use pocketmine\block\tile\EnderChest as TileEnderChest;
 use pocketmine\block\tile\FlowerPot as TileFlowerPot;
@@ -155,6 +157,8 @@ final class VanillaBlocksInputs extends RegistrySource{
 		self::register("barrel", fn(BID $id) => new Barrel($id, "Barrel", new Info(BreakInfo::axe(2.5))), TileBarrel::class);
 		self::register("barrier", fn(BID $id) => new Transparent($id, "Barrier", new Info(BreakInfo::indestructible())));
 		self::register("beacon", fn(BID $id) => new Beacon($id, "Beacon", new Info(new BreakInfo(3.0))), TileBeacon::class);
+		self::register("beehive", fn(BID $id) => new Beehive($id, "Beehive", new Info(BreakInfo::axe(0.6))), TileBeehive::class);
+		self::register("bee_nest", fn(BID $id) => new BeeNest($id, "Bee Nest", new Info(BreakInfo::axe(0.3))), TileBeehive::class);
 		self::register("bed", fn(BID $id) => new Bed($id, "Bed Block", new Info(new BreakInfo(0.2))), TileBed::class);
 		self::register("bedrock", fn(BID $id) => new Bedrock($id, "Bedrock", new Info(BreakInfo::indestructible(18000000.0))));
 
@@ -195,6 +199,7 @@ final class VanillaBlocksInputs extends RegistrySource{
 		self::register("cocoa_pod", fn(BID $id) => new CocoaBlock($id, "Cocoa Block", new Info(BreakInfo::axe(0.2, null, 15.0))));
 		self::register("coral_block", fn(BID $id) => new CoralBlock($id, "Coral Block", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 30.0))));
 		self::register("daylight_sensor", fn(BID $id) => new DaylightSensor($id, "Daylight Sensor", new Info(BreakInfo::axe(0.2))), TileDaylightSensor::class);
+		self::register("decorated_pot", fn(BID $id) => new DecoratedPot($id, "Decorated Pot", new Info(BreakInfo::instant())), TileDecoratedPot::class);
 		self::register("dead_bush", fn(BID $id) => new DeadBush($id, "Dead Bush", new Info(BreakInfo::instant(ToolType::SHEARS, 1), [Tags::POTTABLE_PLANTS])));
 		self::register("detector_rail", fn(BID $id) => new DetectorRail($id, "Detector Rail", $railBreakInfo));
 
@@ -1123,6 +1128,7 @@ final class VanillaBlocksInputs extends RegistrySource{
 
 	private function registerBlocksR18() : void{
 		self::register("spore_blossom", fn(BID $id) => new SporeBlossom($id, "Spore Blossom", new Info(BreakInfo::instant())));
+		self::register("moss_block", fn(BID $id) => new Opaque($id, "Moss Block", new Info(BreakInfo::hoe(0.1), [Tags::DIRT])));
 	}
 
 	private function registerMudBlocks() : void{

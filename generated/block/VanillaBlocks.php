@@ -98,7 +98,9 @@ final class VanillaBlocks{
 	private static Beacon $_mBEACON;
 	private static Bed $_mBED;
 	private static Bedrock $_mBEDROCK;
+	private static Beehive $_mBEEHIVE;
 	private static Beetroot $_mBEETROOTS;
+	private static BeeNest $_mBEE_NEST;
 	private static Bell $_mBELL;
 	private static BigDripleafHead $_mBIG_DRIPLEAF_HEAD;
 	private static BigDripleafStem $_mBIG_DRIPLEAF_STEM;
@@ -285,6 +287,7 @@ final class VanillaBlocks{
 	private static Stair $_mDARK_PRISMARINE_STAIRS;
 	private static DaylightSensor $_mDAYLIGHT_SENSOR;
 	private static DeadBush $_mDEAD_BUSH;
+	private static DecoratedPot $_mDECORATED_POT;
 	private static SimplePillar $_mDEEPSLATE;
 	private static Opaque $_mDEEPSLATE_BRICKS;
 	private static Slab $_mDEEPSLATE_BRICK_SLAB;
@@ -570,6 +573,7 @@ final class VanillaBlocks{
 	private static Slab $_mMOSSY_STONE_BRICK_SLAB;
 	private static Stair $_mMOSSY_STONE_BRICK_STAIRS;
 	private static Wall $_mMOSSY_STONE_BRICK_WALL;
+	private static Opaque $_mMOSS_BLOCK;
 	private static Opaque $_mMUD;
 	private static SimplePillar $_mMUDDY_MANGROVE_ROOTS;
 	private static Opaque $_mMUD_BRICKS;
@@ -962,7 +966,9 @@ final class VanillaBlocks{
 			"beacon" => fn(Beacon $v) => self::$_mBEACON = $v,
 			"bed" => fn(Bed $v) => self::$_mBED = $v,
 			"bedrock" => fn(Bedrock $v) => self::$_mBEDROCK = $v,
+			"beehive" => fn(Beehive $v) => self::$_mBEEHIVE = $v,
 			"beetroots" => fn(Beetroot $v) => self::$_mBEETROOTS = $v,
+			"bee_nest" => fn(BeeNest $v) => self::$_mBEE_NEST = $v,
 			"bell" => fn(Bell $v) => self::$_mBELL = $v,
 			"big_dripleaf_head" => fn(BigDripleafHead $v) => self::$_mBIG_DRIPLEAF_HEAD = $v,
 			"big_dripleaf_stem" => fn(BigDripleafStem $v) => self::$_mBIG_DRIPLEAF_STEM = $v,
@@ -1149,6 +1155,7 @@ final class VanillaBlocks{
 			"dark_prismarine_stairs" => fn(Stair $v) => self::$_mDARK_PRISMARINE_STAIRS = $v,
 			"daylight_sensor" => fn(DaylightSensor $v) => self::$_mDAYLIGHT_SENSOR = $v,
 			"dead_bush" => fn(DeadBush $v) => self::$_mDEAD_BUSH = $v,
+			"decorated_pot" => fn(DecoratedPot $v) => self::$_mDECORATED_POT = $v,
 			"deepslate" => fn(SimplePillar $v) => self::$_mDEEPSLATE = $v,
 			"deepslate_bricks" => fn(Opaque $v) => self::$_mDEEPSLATE_BRICKS = $v,
 			"deepslate_brick_slab" => fn(Slab $v) => self::$_mDEEPSLATE_BRICK_SLAB = $v,
@@ -1434,6 +1441,7 @@ final class VanillaBlocks{
 			"mossy_stone_brick_slab" => fn(Slab $v) => self::$_mMOSSY_STONE_BRICK_SLAB = $v,
 			"mossy_stone_brick_stairs" => fn(Stair $v) => self::$_mMOSSY_STONE_BRICK_STAIRS = $v,
 			"mossy_stone_brick_wall" => fn(Wall $v) => self::$_mMOSSY_STONE_BRICK_WALL = $v,
+			"moss_block" => fn(Opaque $v) => self::$_mMOSS_BLOCK = $v,
 			"mud" => fn(Opaque $v) => self::$_mMUD = $v,
 			"muddy_mangrove_roots" => fn(SimplePillar $v) => self::$_mMUDDY_MANGROVE_ROOTS = $v,
 			"mud_bricks" => fn(Opaque $v) => self::$_mMUD_BRICKS = $v,
@@ -2070,9 +2078,19 @@ final class VanillaBlocks{
 		return clone self::$_mBEDROCK;
 	}
 
+	public static function BEEHIVE() : Beehive{
+		if(!isset(self::$_mBEEHIVE)){ self::init(); }
+		return clone self::$_mBEEHIVE;
+	}
+
 	public static function BEETROOTS() : Beetroot{
 		if(!isset(self::$_mBEETROOTS)){ self::init(); }
 		return clone self::$_mBEETROOTS;
+	}
+
+	public static function BEE_NEST() : BeeNest{
+		if(!isset(self::$_mBEE_NEST)){ self::init(); }
+		return clone self::$_mBEE_NEST;
 	}
 
 	public static function BELL() : Bell{
@@ -3003,6 +3021,11 @@ final class VanillaBlocks{
 	public static function DEAD_BUSH() : DeadBush{
 		if(!isset(self::$_mDEAD_BUSH)){ self::init(); }
 		return clone self::$_mDEAD_BUSH;
+	}
+
+	public static function DECORATED_POT() : DecoratedPot{
+		if(!isset(self::$_mDECORATED_POT)){ self::init(); }
+		return clone self::$_mDECORATED_POT;
 	}
 
 	public static function DEEPSLATE() : SimplePillar{
@@ -4428,6 +4451,11 @@ final class VanillaBlocks{
 	public static function MOSSY_STONE_BRICK_WALL() : Wall{
 		if(!isset(self::$_mMOSSY_STONE_BRICK_WALL)){ self::init(); }
 		return clone self::$_mMOSSY_STONE_BRICK_WALL;
+	}
+
+	public static function MOSS_BLOCK() : Opaque{
+		if(!isset(self::$_mMOSS_BLOCK)){ self::init(); }
+		return clone self::$_mMOSS_BLOCK;
 	}
 
 	public static function MUD() : Opaque{

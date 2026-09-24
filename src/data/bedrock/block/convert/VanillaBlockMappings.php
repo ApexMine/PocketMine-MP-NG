@@ -31,6 +31,7 @@ use pocketmine\block\BambooSapling;
 use pocketmine\block\Barrel;
 use pocketmine\block\Bed;
 use pocketmine\block\Bedrock;
+use pocketmine\block\Beehive;
 use pocketmine\block\Bell;
 use pocketmine\block\BigDripleafHead;
 use pocketmine\block\Block;
@@ -385,6 +386,7 @@ final class VanillaBlockMappings{
 		$reg->mapSimple(Blocks::MANGROVE_ROOTS(), Ids::MANGROVE_ROOTS);
 		$reg->mapSimple(Blocks::MELON(), Ids::MELON_BLOCK);
 		$reg->mapSimple(Blocks::MONSTER_SPAWNER(), Ids::MOB_SPAWNER);
+		$reg->mapSimple(Blocks::MOSS_BLOCK(), Ids::MOSS_BLOCK);
 		$reg->mapSimple(Blocks::MOSSY_COBBLESTONE(), Ids::MOSSY_COBBLESTONE);
 		$reg->mapSimple(Blocks::MOSSY_STONE_BRICKS(), Ids::MOSSY_STONE_BRICKS);
 		$reg->mapSimple(Blocks::MUD(), Ids::MUD);
@@ -1337,11 +1339,21 @@ final class VanillaBlockMappings{
 		$reg->mapModel(Model::create(Blocks::CAKE(), Ids::CAKE)->properties([
 			new IntProperty(StateNames::BITE_COUNTER, 0, 6, fn(Cake $b) => $b->getBites(), fn(Cake $b, int $v) => $b->setBites($v))
 		]));
+		foreach([
+			Ids::BEEHIVE => Blocks::BEEHIVE(),
+			Ids::BEE_NEST => Blocks::BEE_NEST(),
+		] as $id => $block){
+			$reg->mapModel(Model::create($block, $id)->properties([
+				$commonProperties->horizontalFacingSWNE,
+				new IntProperty(StateNames::HONEY_LEVEL, Beehive::MIN_HONEY_LEVEL, Beehive::MAX_HONEY_LEVEL, fn(Beehive $b) => $b->getHoneyLevel(), fn(Beehive $b, int $v) => $b->setHoneyLevel($v)),
+			]));
+		}
 		$reg->mapModel(Model::create(Blocks::CAMPFIRE(), Ids::CAMPFIRE)->properties($commonProperties->campfireProperties));
 		$reg->mapModel(Model::create(Blocks::CARVED_PUMPKIN(), Ids::CARVED_PUMPKIN)->properties([
 			$commonProperties->horizontalFacingCardinal
 		]));
 		$reg->mapModel(Model::create(Blocks::CHAIN(), Ids::IRON_CHAIN)->properties([$commonProperties->pillarAxis]));
+		$reg->mapModel(Model::create(Blocks::DECORATED_POT(), Ids::DECORATED_POT)->properties([$commonProperties->horizontalFacingSWNE]));
 		$reg->mapModel(Model::create(Blocks::CHISELED_BOOKSHELF(), Ids::CHISELED_BOOKSHELF)->properties([
 			$commonProperties->horizontalFacingSWNE,
 			new ValueSetFromIntProperty(

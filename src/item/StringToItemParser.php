@@ -177,6 +177,8 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("barrier", fn() => Blocks::BARRIER());
 		$result->registerBlock("basalt", fn() => Blocks::BASALT());
 		$result->registerBlock("beacon", fn() => Blocks::BEACON());
+		$result->registerBlock("bee_nest", fn() => Blocks::BEE_NEST());
+		$result->registerBlock("beehive", fn() => Blocks::BEEHIVE());
 		$result->registerBlock("bed", fn() => Blocks::BED());
 		$result->registerBlock("bed_block", fn() => Blocks::BED());
 		$result->registerBlock("bedrock", fn() => Blocks::BEDROCK());
@@ -376,6 +378,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("daylight_detector", fn() => Blocks::DAYLIGHT_SENSOR());
 		$result->registerBlock("daylight_detector_inverted", fn() => Blocks::DAYLIGHT_SENSOR()->setInverted(true));
 		$result->registerBlock("daylight_sensor", fn() => Blocks::DAYLIGHT_SENSOR());
+		$result->registerBlock("decorated_pot", fn() => Blocks::DECORATED_POT());
 		$result->registerBlock("daylight_sensor_inverted", fn() => Blocks::DAYLIGHT_SENSOR()->setInverted(true));
 		$result->registerBlock("dead_bush", fn() => Blocks::DEAD_BUSH());
 		$result->registerBlock("deadbush", fn() => Blocks::DEAD_BUSH());
@@ -847,6 +850,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("monster_egg_block", fn() => Blocks::INFESTED_STONE());
 		$result->registerBlock("monster_spawner", fn() => Blocks::MONSTER_SPAWNER());
 		$result->registerBlock("moss_stone", fn() => Blocks::MOSSY_COBBLESTONE());
+		$result->registerBlock("moss_block", fn() => Blocks::MOSS_BLOCK());
 		$result->registerBlock("mossy_cobblestone", fn() => Blocks::MOSSY_COBBLESTONE());
 		$result->registerBlock("mossy_cobblestone_slab", fn() => Blocks::MOSSY_COBBLESTONE_SLAB());
 		$result->registerBlock("mossy_cobblestone_stairs", fn() => Blocks::MOSSY_COBBLESTONE_STAIRS());
