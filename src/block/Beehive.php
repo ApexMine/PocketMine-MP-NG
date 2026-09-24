@@ -25,7 +25,6 @@ namespace pocketmine\block;
 
 use pocketmine\block\utils\FacesOppositePlacingPlayerTrait;
 use pocketmine\block\utils\HorizontalFacing;
-use pocketmine\block\utils\HorizontalFacingTrait;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\item\GlassBottle;
 use pocketmine\item\Item;
@@ -35,9 +34,7 @@ use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 
 class Beehive extends Opaque implements HorizontalFacing{
-	use FacesOppositePlacingPlayerTrait {
-		HorizontalFacingTrait::describeBlockOnlyState as describeFacing;
-	}
+	use FacesOppositePlacingPlayerTrait;
 
 	public const MIN_HONEY_LEVEL = 0;
 	public const MAX_HONEY_LEVEL = 5;
@@ -45,7 +42,7 @@ class Beehive extends Opaque implements HorizontalFacing{
 	protected int $honeyLevel = self::MIN_HONEY_LEVEL;
 
 	protected function describeBlockOnlyState(RuntimeDataDescriber $w) : void{
-		$this->describeFacing($w);
+		$w->horizontalFacing($this->facing);
 		$w->boundedIntAuto(self::MIN_HONEY_LEVEL, self::MAX_HONEY_LEVEL, $this->honeyLevel);
 	}
 
