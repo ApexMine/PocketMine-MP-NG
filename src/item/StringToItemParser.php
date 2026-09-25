@@ -415,7 +415,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("double_slabs", fn() => Blocks::STONE_SLAB()->setSlabType(SlabType::DOUBLE));
 		$result->registerBlock("double_stone_slab", fn() => Blocks::STONE_SLAB()->setSlabType(SlabType::DOUBLE));
 		$result->registerBlock("double_stone_slab2", fn() => Blocks::RED_SANDSTONE_SLAB()->setSlabType(SlabType::DOUBLE));
-		$result->registerBlock("double_stone_slab3", fn() => Blocks::END_STONE_BRICK_SLAB()->setSlabType(SlabType::DOUBLE));
+		$result->registerBlock("double_stone_slab3",fn() => Blocks::END_STONE_BRICK_SLAB()->setSlabType(SlabType::DOUBLE));
 		$result->registerBlock("double_stone_slab4", fn() => Blocks::MOSSY_STONE_BRICK_SLAB()->setSlabType(SlabType::DOUBLE));
 		$result->registerBlock("double_tallgrass", fn() => Blocks::DOUBLE_TALLGRASS());
 		$result->registerBlock("double_wood_slab", fn() => Blocks::OAK_SLAB()->setSlabType(SlabType::DOUBLE));
@@ -425,6 +425,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("dragon_egg", fn() => Blocks::DRAGON_EGG());
 		$result->registerBlock("dragon_head", fn() => Blocks::MOB_HEAD()->setMobHeadType(MobHeadType::DRAGON));
 		$result->registerBlock("dried_kelp_block", fn() => Blocks::DRIED_KELP());
+		$result->registerBlock("dripstone_block", fn() => Blocks::DRIPSTONE_BLOCK());
 		$result->registerBlock("dyed_shulker_box", fn() => Blocks::DYED_SHULKER_BOX());
 		$result->registerBlock("element_0", fn() => Blocks::ELEMENT_ZERO());
 		$result->registerBlock("element_1", fn() => Blocks::ELEMENT_HYDROGEN());
@@ -851,6 +852,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("monster_spawner", fn() => Blocks::MONSTER_SPAWNER());
 		$result->registerBlock("moss_stone", fn() => Blocks::MOSSY_COBBLESTONE());
 		$result->registerBlock("moss_block", fn() => Blocks::MOSS_BLOCK());
+		$result->registerBlock("moss_carpet", fn() => Blocks::MOSS_CARPET());
 		$result->registerBlock("mossy_cobblestone", fn() => Blocks::MOSSY_COBBLESTONE());
 		$result->registerBlock("mossy_cobblestone_slab", fn() => Blocks::MOSSY_COBBLESTONE_SLAB());
 		$result->registerBlock("mossy_cobblestone_stairs", fn() => Blocks::MOSSY_COBBLESTONE_STAIRS());

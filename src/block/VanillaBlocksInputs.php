@@ -1129,6 +1129,8 @@ final class VanillaBlocksInputs extends RegistrySource{
 	private function registerBlocksR18() : void{
 		self::register("spore_blossom", fn(BID $id) => new SporeBlossom($id, "Spore Blossom", new Info(BreakInfo::instant())));
 		self::register("moss_block", fn(BID $id) => new Opaque($id, "Moss Block", new Info(BreakInfo::hoe(0.1), [Tags::DIRT])));
+		self::register("moss_carpet", fn(BID $id) => new MossCarpet($id, "Moss Carpet", new Info(new BreakInfo(0.1))));
+		self::register("dripstone_block", fn(BID $id) => new Opaque($id, "Dripstone Block", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 5.0))));
 	}
 
 	private function registerMudBlocks() : void{
